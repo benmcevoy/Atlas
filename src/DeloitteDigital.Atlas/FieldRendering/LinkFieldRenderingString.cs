@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.ServiceLocation;
-using Sitecore.Data.Fields;
+﻿using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 
 namespace DeloitteDigital.Atlas.FieldRendering
@@ -109,6 +108,22 @@ namespace DeloitteDigital.Atlas.FieldRendering
         public string Description
         {
             get { return LinkField.Text; }
+        }
+
+        /// <summary>
+        /// Gets the link query string
+        /// </summary>
+        public string QueryString
+        {
+            get
+            {
+                if (this.LinkField == null)
+                {
+                    return string.Empty;
+                }
+
+                return this.LinkField.QueryString;
+            }
         }
     }
 }
